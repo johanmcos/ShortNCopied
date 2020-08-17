@@ -18,7 +18,7 @@
 
 function shorten --description 'shorten a link, then copy to clipboard'
   if type -q twzer
-    if string length (sh -c '$WAYLAND_DISPLAY') > 0
+    if string length -q $WAYLAND_DISPLAY
       if type -q wl-copy
         wl-copy (twzer sh $argv | grep -o https[a-zA-Z0-9\/\:\.]\*)
       else
